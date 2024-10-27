@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Udemy Futureworks - Futuristic Landing Page</title>
+  <!-- Google Fonts for Modern Typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      width: 100%;
+      height: 100%;
+      font-family: 'Roboto', sans-serif;
+      color: #ffffff;
+      overflow: hidden;
+    }
+
+    /* Background Image with Overlay */
+    body {
+      background: url('https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+      position: relative;
+    }
+
+    /* Dark Overlay for Text Readability */
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+
+    /* Main Content Container */
+    .content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* Header Logo */
+    .logo img {
+      width: 150px;
+      margin-bottom: 20px;
+      animation: fadeInDown 1s ease-out forwards;
+    }
+
+    /* Tagline */
+    .tagline {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.5rem;
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: fadeIn 2s ease-out forwards;
+      animation-delay: 0.5s;
+    }
+
+    /* Main Buttons Section */
+    .main-buttons {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    .app-button {
+      background: linear-gradient(135deg, #6e45e2, #88d3ce);
+      color: #fff;
+      padding: 15px 30px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 15px rgba(110, 69, 226, 0.4);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none; /* Remove underline */
+      opacity: 0;
+      animation: slideInUp 1s ease-out forwards;
+      animation-delay: 1s;
+    }
+
+    .app-button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(110, 69, 226, 0.6);
+    }
+
+    /* Call-to-Action Banner */
+    .cta-banner {
+      background: linear-gradient(145deg, #6e45e2, #9b51e0);
+      padding: 30px 50px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 800px;
+      margin: 20px auto;
+      opacity: 0;
+      animation: fadeIn 1.5s ease-out forwards;
+      animation-delay: 1.5s;
+    }
+
+    .cta-banner h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    .cta-banner p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .cta-button {
+      background: #ffffff;
+      color: #6e45e2;
+      padding: 12px 25px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      text-decoration: none; /* Remove underline */
+      display: inline-block; /* Ensure it behaves like a button */
+    }
+
+    .cta-button:hover {
+      background: #f0f0f0;
+      transform: scale(1.05);
+    }
+
+    /* Footer */
+    footer {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .cta-banner {
+        padding: 20px 30px;
+      }
+
+      .cta-banner h2 {
+        font-size: 1.5rem;
+      }
+
+      .cta-banner p {
+        font-size: 0.9rem;
+      }
+
+      .app-button {
+        padding: 12px 25px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Overlay for Darkening the Background -->
+  <div class="overlay"></div>
+
+  <!-- Main Content -->
+  <div class="content">
+    <!-- Header Logo -->
+    <div class="logo">
+      <img src="https://storage.googleapis.com/lsmimages/udemy-futureworks-inverse.png" alt="Udemy Futureworks Logo">
+    </div>
+    
+    <!-- Tagline -->
+    <p class="tagline">Building a Smarter Future</p>
+    
+    <!-- Main Buttons Section -->
+    <div class="main-buttons">
+      <a href="https://udemy-skunkworks.com/marketplace?phill=true" target="_blank" class="app-button">Phill</a>
+      <a href="https://udemy-skunkworks.com/lsm" target="_blank" class="app-button">LSM</a>
+      <a href="https://udemy-skunkworks.com/acc" target="_blank" class="app-button">ACC</a>
+    </div>
+    
+    <!-- Call-to-Action Banner -->
+    <div class="cta-banner">
+      <h2>Check Out Our Latest Podcasts</h2>
+      <p>Explore insights, stories, and tips from industry experts in our latest podcast series.</p>
+      <a href="https://udemy-skunkworks.com/fu-podcast" target="_blank" class="cta-button">Listen Now</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Udemy Futureworks. All rights reserved.</p>
+  </footer>
+</body>
+</html>
