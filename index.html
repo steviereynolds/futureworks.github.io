@@ -68,7 +68,6 @@
     padding: 20px;
     color: white;
     text-align: center;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Slight shadow for better readability */
   }
 
   .hero-text h1 {
@@ -175,7 +174,13 @@
     transform: scale(1.05);
   }
 
-
+  .logo {   
+    position: absolute;
+    z-index: 5;
+    width: 25rem;
+    top: 2rem;
+    left: 15vw;
+}
   
   /* Animations */
   @keyframes fadeIn {
@@ -195,6 +200,8 @@
     }
   }
 
+
+
   /* Responsive Design */
   @media (max-width: 768px) {
     .tiles {
@@ -213,12 +220,15 @@
     .hero {
       height: 50vh;
     }
+    
   }
 </style>
 
 <!-- Main Content -->
 <div class="content">
-  
+  <div class="logo">
+    <img style=" width: 100%;" src="https://storage.googleapis.com/lsmimages/udemy-futureworks-inverse.png"/>
+  </div>
   <!-- Hero Section -->
   <div class="hero">
     <div class="hero-overlay">
