@@ -263,85 +263,89 @@ title: FU Podcast - Udemy Futureworks
 
 
   <!-- JavaScript for Player Controls (Separate Instances for Each Player) -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      // Initialize the first player (you can expand for more)
-      initializePlayer('audioPlayer1', 'playPauseBtn1', 'seekBar1', 'currentTime1', 'duration1', 'volumeBtn1', 'volumeSlider1', 'volume-slider-container1');
-    });
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // Initialize all audio players
+  const episodes = document.querySelectorAll('.episode-box');
+  episodes.forEach((episode, index) => {
+    initializePlayer(episode, index);
+  });
+});
 
-    function initializePlayer(audioId, playPauseId, seekBarId, currentTimeId, durationId, volumeBtnId, volumeSliderId, volumeContainerId) {
-      const audioPlayer = document.getElementById(audioId);
-      const playPauseBtn = document.getElementById(playPauseId);
-      const playPauseIcon = playPauseBtn.querySelector('i');
-      const seekBar = document.getElementById(seekBarId);
-      const currentTimeDisplay = document.getElementById(currentTimeId);
-      const durationDisplay = document.getElementById(durationId);
-      const volumeBtn = document.getElementById(volumeBtnId);
-      const volumeIcon = volumeBtn.querySelector('i');
-      const volumeSlider = document.getElementById(volumeSliderId);
-      const volumeSliderContainer = document.getElementById(volumeContainerId);
-      let volumeHideTimeout;
+function initializePlayer(episode, index) {
+  // Get controls and elements within the current episode box
+  const audioPlayer = episode.querySelector('audio');
+  const playPauseBtn = episode.querySelector('.control-btn');
+  const playPauseIcon = playPauseBtn.querySelector('i');
+  const seekBar = episode.querySelector('input[type="range"]');
+  const currentTimeDisplay = episode.querySelector('.time-info span:first-child');
+  const durationDisplay = episode.querySelector('.time-info span:last-child');
+  const volumeBtn = episode.querySelector('.volume-control .control-btn');
+  const volumeSlider = episode.querySelector('#volumeSlider');
+  const volumeSliderContainer = episode.querySelector('.volume-slider-container');
+  let volumeHideTimeout;
 
-      // Play/Pause functionality
-      playPauseBtn.addEventListener('click', function () {
-        if (audioPlayer.paused) {
-          audioPlayer.play();
-          playPauseIcon.classList.replace('fa-play', 'fa-pause');
-        } else {
-          audioPlayer.pause();
-          playPauseIcon.classList.replace('fa-pause', 'fa-play');
-        }
-      });
-
-      // Update seek bar and time display
-      audioPlayer.addEventListener('timeupdate', function () {
-        const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
-        seekBar.value = progress;
-        currentTimeDisplay.textContent = formatTime(audioPlayer.currentTime);
-      });
-
-      // Update duration once metadata is loaded
-      audioPlayer.addEventListener('loadedmetadata', function () {
-        durationDisplay.textContent = formatTime(audioPlayer.duration);
-      });
-
-      // Seek functionality
-      seekBar.addEventListener('input', function () {
-        const seekTime = (seekBar.value / 100) * audioPlayer.duration;
-        audioPlayer.currentTime = seekTime;
-      });
-
-      // Volume toggle to show/hide slider
-      volumeBtn.addEventListener('click', function () {
-        if (volumeSliderContainer.style.display === 'none') {
-          volumeSliderContainer.style.display = 'flex';
-          resetVolumeHideTimer();
-        } else {
-          volumeSliderContainer.style.display = 'none';
-          clearTimeout(volumeHideTimeout);
-        }
-      });
-
-      // Volume adjustment
-      volumeSlider.addEventListener('input', function () {
-        audioPlayer.volume = volumeSlider.value;
-        volumeSliderContainer.style.display = 'none';
-      });
-
-      // Auto-hide volume slider after 5 seconds
-      function resetVolumeHideTimer() {
-        clearTimeout(volumeHideTimeout);
-        volumeHideTimeout = setTimeout(function () {
-          volumeSliderContainer.style.display = 'none';
-        }, 5000);
-      }
-
-      // Format time to minutes:seconds
-      function formatTime(seconds) {
-        const minutes = Math.floor(seconds / 60);
-        const secs = Math.floor(seconds % 60);
-        return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
-      }
+  // Play/Pause functionality
+  playPauseBtn.addEventListener('click', function () {
+    if (audioPlayer.paused) {
+      audioPlayer.play();
+      playPauseIcon.classList.replace('fa-play', 'fa-pause');
+    } else {
+      audioPlayer.pause();
+      playPauseIcon.classList.replace('fa-pause', 'fa-play');
     }
-  </script>
+  });
+
+  // Update seek bar and time display
+  audioPlayer.addEventListener('timeupdate', function () {
+    const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+    seekBar.value = progress;
+    currentTimeDisplay.textContent = formatTime(audioPlayer.currentTime);
+  });
+
+  // Update duration once metadata is loaded
+  audioPlayer.addEventListener('loadedmetadata', function () {
+    durationDisplay.textContent = formatTime(audioPlayer.duration);
+  });
+
+  // Seek functionality
+  seekBar.addEventListener('input', function () {
+    const seekTime = (seekBar.value / 100) * audioPlayer.duration;
+    audioPlayer.currentTime = seekTime;
+  });
+
+  // Volume toggle to show/hide slider
+  volumeBtn.addEventListener('click', function () {
+    if (volumeSliderContainer.style.display === 'none') {
+      volumeSliderContainer.style.display = 'flex';
+      resetVolumeHideTimer();
+    } else {
+      volumeSliderContainer.style.display = 'none';
+      clearTimeout(volumeHideTimeout);
+    }
+  });
+
+  // Volume adjustment
+  volumeSlider.addEventListener('input', function () {
+    audioPlayer.volume = volumeSlider.value;
+    volumeSliderContainer.style.display = 'none';
+  });
+
+  // Auto-hide volume slider after 5 seconds
+  function resetVolumeHideTimer() {
+    clearTimeout(volumeHideTimeout);
+    volumeHideTimeout = setTimeout(function () {
+      volumeSliderContainer.style.display = 'none';
+    }, 5000);
+  }
+
+  // Format time to minutes:seconds
+  function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+  }
+}
+</script>
+
 
