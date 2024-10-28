@@ -3,42 +3,261 @@ layout: default
 title: FU Podcast - Udemy Futureworks
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Podcasts - Udemy Futureworks</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  
+  <!-- Custom Styles for Podcast Page -->
   <style>
+    /* General Page Styles */
     body, html {
       margin: 0;
       padding: 0;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       font-family: 'Roboto', sans-serif;
-      background-color: #f0f0f0;
-      color: #333;
+      background-color: #121212;
+      color: #ffffff;
     }
-    .placeholder {
+
+    /* Header Section */
+    .header {
       text-align: center;
+      padding: 50px 20px;
+      background: linear-gradient(135deg, #6e45e2, #88d3ce);
+      color: #ffffff;
     }
-    .placeholder h1 {
-      font-size: 2rem;
-      margin-bottom: 20px;
+
+    .header h1 {
+      font-size: 3rem;
+      font-family: 'Orbitron', sans-serif;
+      margin-bottom: 10px;
     }
-    .placeholder p {
-      font-size: 1rem;
-      color: #666;
+
+    .header p {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    /* Episode Section */
+    .episode-section {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    /* Episode Box */
+    .episode-box {
+      background: #1e1e1e;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    .episode-box h2 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      color: #9b51e0;
+    }
+
+    .episode-box .episode-date {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 15px;
+    }
+
+    /* Custom Audio Player Styles */
+    .custom-audio-player {
+      background: rgba(0, 0, 0, 0.65); /* 65% transparent black background */
+      padding: 15px;
+      border-radius: 30px;
+      width: 95%;
+      max-width: 700px;
+      margin: 0 auto;
+      margin-bottom: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Player Controls */
+    .player-controls {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    /* Volume Slider */
+    .volume-control {
+      position: relative;
+    }
+
+    /* Volume Slider Container with Background */
+    .volume-slider-container {
+      display: none;
+      position: absolute;
+      bottom: 35px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.8);
+      padding: 5px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+      height: 70px;
+      width: 25px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: rgba(255, 255, 255, 0.6);
+      background-color: #1e1e1e;
     }
   </style>
-</head>
-<body>
-  <div class="placeholder">
-    <h1>Coming Soon</h1>
-    <p>Our podcast section is under construction. Stay tuned for exciting content!</p>
+
+  <!-- Header Section -->
+  <div class="header">
+    <h1>FU Podcast - Futureworks Unfiltered</h1>
+    <p>Exploring the Frontier of Learning</p>
   </div>
-</body>
-</html>
+
+  <!-- Episode Section -->
+  <div class="episode-section">
+    
+    <!-- Episode 1 -->
+    <div class="episode-box">
+      <h2>Episode 1: n-dimensional Temporal Mapping</h2>
+      <p class="episode-date">Oct 25, 2024</p>
+      <div class="custom-audio-player">
+        <audio id="audioPlayer1" preload="metadata">
+          <source src="https://storage.googleapis.com/lsmimages/n-dimensional-temporal-mapping.wav" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+        
+        <!-- Podcast Title with Scrolling Effect -->
+        <div class="title-container">
+          <div class="podcast-title">Title: Exploring N-Dimensional Temporal Mapping - A Temporal and Conceptual Analysis of Knowledge Networks</div>
+        </div>
+        
+        <div class="player-controls">
+          <button id="playPauseBtn1" class="control-btn"><i class="fa-solid fa-play"></i></button>
+          
+          <div class="progress-container">
+            <input type="range" id="seekBar1" value="0" max="100" step="0.1">
+          </div>
+          
+          <div class="time-info">
+            <span id="currentTime1">0:00</span> / <span id="duration1">0:00</span>
+          </div>
+          
+          <!-- Volume Icon and Vertical Slider with Background -->
+          <div class="volume-control">
+            <button id="volumeBtn1" class="control-btn"><i class="fa-solid fa-volume-high"></i></button>
+            <div id="volume-slider-container1" class="volume-slider-container">
+              <input type="range" id="volumeSlider1" min="0" max="1" step="0.01" value="1">
+            </div>
+          </div>
+          
+          <!-- Download Button -->
+          <a href="https://storage.googleapis.com/lsmimages/n-dimensional-temporal-mapping.wav" download class="download-link">
+            <i class="fa-solid fa-download"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add more episodes here following the same structure -->
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Udemy Futureworks. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript for Player Controls (Separate Instances for Each Player) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Initialize the first player (you can expand for more)
+      initializePlayer('audioPlayer1', 'playPauseBtn1', 'seekBar1', 'currentTime1', 'duration1', 'volumeBtn1', 'volumeSlider1', 'volume-slider-container1');
+    });
+
+    function initializePlayer(audioId, playPauseId, seekBarId, currentTimeId, durationId, volumeBtnId, volumeSliderId, volumeContainerId) {
+      const audioPlayer = document.getElementById(audioId);
+      const playPauseBtn = document.getElementById(playPauseId);
+      const playPauseIcon = playPauseBtn.querySelector('i');
+      const seekBar = document.getElementById(seekBarId);
+      const currentTimeDisplay = document.getElementById(currentTimeId);
+      const durationDisplay = document.getElementById(durationId);
+      const volumeBtn = document.getElementById(volumeBtnId);
+      const volumeIcon = volumeBtn.querySelector('i');
+      const volumeSlider = document.getElementById(volumeSliderId);
+      const volumeSliderContainer = document.getElementById(volumeContainerId);
+      let volumeHideTimeout;
+
+      // Play/Pause functionality
+      playPauseBtn.addEventListener('click', function () {
+        if (audioPlayer.paused) {
+          audioPlayer.play();
+          playPauseIcon.classList.replace('fa-play', 'fa-pause');
+        } else {
+          audioPlayer.pause();
+          playPauseIcon.classList.replace('fa-pause', 'fa-play');
+        }
+      });
+
+      // Update seek bar and time display
+      audioPlayer.addEventListener('timeupdate', function () {
+        const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+        seekBar.value = progress;
+        currentTimeDisplay.textContent = formatTime(audioPlayer.currentTime);
+      });
+
+      // Update duration once metadata is loaded
+      audioPlayer.addEventListener('loadedmetadata', function () {
+        durationDisplay.textContent = formatTime(audioPlayer.duration);
+      });
+
+      // Seek functionality
+      seekBar.addEventListener('input', function () {
+        const seekTime = (seekBar.value / 100) * audioPlayer.duration;
+        audioPlayer.currentTime = seekTime;
+      });
+
+      // Volume toggle to show/hide slider
+      volumeBtn.addEventListener('click', function () {
+        if (volumeSliderContainer.style.display === 'none') {
+          volumeSliderContainer.style.display = 'flex';
+          resetVolumeHideTimer();
+        } else {
+          volumeSliderContainer.style.display = 'none';
+          clearTimeout(volumeHideTimeout);
+        }
+      });
+
+      // Volume adjustment
+      volumeSlider.addEventListener('input', function () {
+        audioPlayer.volume = volumeSlider.value;
+        volumeSliderContainer.style.display = 'none';
+      });
+
+      // Auto-hide volume slider after 5 seconds
+      function resetVolumeHideTimer() {
+        clearTimeout(volumeHideTimeout);
+        volumeHideTimeout = setTimeout(function () {
+          volumeSliderContainer.style.display = 'none';
+        }, 5000);
+      }
+
+      // Format time to minutes:seconds
+      function formatTime(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+      }
+    }
+  </script>
+
