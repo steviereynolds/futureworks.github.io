@@ -23,30 +23,31 @@
   }
 
   /* Hero Section */
-  .hero {
-    width: 100%;
-    height: 70vh; /* Slightly increased height for hero section */
-    position: relative;
-    background: url('/images/hero-image.webp') no-repeat center center/cover;
-    background-size: cover;
-    overflow: hidden;
-    clip-path: ellipse(150% 80% at 50% 15%);
-    border-bottom: rgba(150, 0, 255);
-    box-shadow: 0 0 40px rgba(255, 0, 80, 0.35); /* Glowing effect around the hero */
-  }
+.hero {
+  width: 100%;
+  height: 70vh;
+  position: relative;
+  background: url(/images/hero-image.webp) no-repeat center center / cover;
+  background-size: cover;
+  overflow: hidden;
+  clip-path: ellipse(150% 80% at 50% 15%);
+  border-bottom: rgba(150, 0, 255);
 
-  /* Glowing Border Effect for Hero */
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    box-shadow: 0 0 60px rgba(150, 0, 255, 0.55); /* Soft purple glow */
-    z-index: -1;
-    pointer-events: none; /* Ignore mouse events */
-  }
+  /* Remove the box-shadow here */
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 40px rgba(150, 0, 255, 0.6); /* Soft purple glow */
+  z-index: -1;
+  pointer-events: none;
+  clip-path: ellipse(150% 80% at 50% 15%); /* Match the clipping path */
+}
 
   /* Overlay for Hero Image */
   .hero-overlay {
@@ -94,7 +95,7 @@
   }
 
   .tile {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.35);
     padding: 20px;
     width: 200px;
     height: 250px;
@@ -174,6 +175,15 @@
     transform: scale(1.05);
   }
 
+  @keyframes scroll-title {
+  0% {
+    transform: translateX(100%); /* Start from the right side, off-screen */
+  }
+  100% {
+    transform: translateX(-100%); /* Move to the left side, off-screen */
+  }
+}
+  
   /* Animations */
   @keyframes fadeIn {
     to {
@@ -244,7 +254,7 @@
   <!-- Podcast Section -->
   <div class="podcast-section">
     <div>
-      <h2>FU Podcast now live!</h2>
+      <h2>F-U Podcast now live!</h2>
       <p>Explore insights, stories, and tips from industry experts in our latest podcast series.</p>
     </div>
     <a href="/podcast/" class="cta-button">Listen Now</a>
