@@ -1,8 +1,3 @@
----
-layout: default
-title: Udemy Futureworks - Home
----
-
 <style>
   /* Reset and Base Styles */
   * {
@@ -33,6 +28,10 @@ title: Udemy Futureworks - Home
     height: 66vh; /* 2/3 of the viewport height */
     position: relative;
     background: url('https://img.freepik.com/premium-photo/illustration-future-human-education-with-robotic-tutor-his-student_924723-4739.jpg') no-repeat center center/cover;
+    background-size: cover;
+    overflow: hidden;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+    box-shadow: 0 0 40px rgba(255, 0, 80, 0.5); /* Glowing effect around the hero */
   }
 
   /* Overlay for Hero Image */
@@ -54,13 +53,15 @@ title: Udemy Futureworks - Home
     padding: 20px;
     color: white;
     text-align: center;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Slight shadow for better readability */
   }
 
   .hero-text h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: bold;
     margin-bottom: 20px;
     animation: fadeInDown 1.5s ease-out forwards;
+    text-shadow: 0 0 20px rgba(255, 0, 80, 0.8); /* Glowing text effect */
   }
 
   .hero-text p {
@@ -151,7 +152,7 @@ title: Udemy Futureworks - Home
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     text-decoration: none;
     display: inline-block;
-    height: 4rem
+    height: 4rem;
   }
 
   .cta-button:hover {
@@ -208,7 +209,10 @@ title: Udemy Futureworks - Home
         <h1>Welcome to Futureworks</h1>
         <p>Building a smarter future with innovative learning tools</p>
       </div>
-        <!-- Main Tiles Section -->
+    </div>
+  </div>
+  
+  <!-- Main Tiles Section -->
   <div class="tiles-section">
     <div class="tiles">
       <a href="/phill/" class="tile">
@@ -225,16 +229,12 @@ title: Udemy Futureworks - Home
       </a>
     </div>
   </div>
-    </div>
-  </div>
-  
-
 
   <!-- Podcast Section -->
   <div class="podcast-section">
     <div>
-    <h2>FU Podcast now live!</h2>
-    <p>Explore insights, stories, and tips from industry experts in our latest podcast series.</p>
+      <h2>FU Podcast now live!</h2>
+      <p>Explore insights, stories, and tips from industry experts in our latest podcast series.</p>
     </div>
     <a href="/podcast/" class="cta-button">Listen Now</a>
   </div>
