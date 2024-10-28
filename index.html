@@ -99,36 +99,56 @@ title: Udemy Futureworks - Home
     margin-top: 30px;
   }
 
-  .tile {
-    background: rgba(255, 255, 255, 0.35);
-    padding: 20px;
-    width: 200px;
-    height: 250px;
-    border-radius: 12px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    text-decoration: none;
-  }
+/* Enhanced Tile Styles */
+.tile {
+  background: rgba(255, 255, 255, 0.35);
+  padding: 30px 20px;
+  width: 220px;
+  height: 280px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(255,255,255,0.35), rgba(255,255,255,0.15));
+}
 
-  .tile:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-  }
+.tile::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1), transparent);
+  transition: transform 0.6s ease;
+}
+
+.tile:hover::before {
+  transform: rotate(45deg) scale(1.2);
+}
+
+.tile:hover {
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(135deg, rgba(255,255,255,0.5), rgba(255,255,255,0.25));
+}
 
   .tile h3 {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     margin-bottom: 10px;
     font-family: 'Orbitron', sans-serif;
   }
 
   .tile p {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: rgba(255, 255, 255, 0.8);
   }
 
@@ -172,7 +192,7 @@ title: Udemy Futureworks - Home
     height: 3rem;
     align-items: center;
     display: flex;
-    margin: 0 20px;
+    margin: 0 40px;
   }
 
   .cta-button:hover {
