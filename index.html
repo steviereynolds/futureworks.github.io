@@ -25,13 +25,26 @@
   /* Hero Section */
   .hero {
     width: 100%;
-    height: 66vh; /* 2/3 of the viewport height */
+    height: 70vh; /* Slightly increased height for hero section */
     position: relative;
     background: url('https://img.freepik.com/premium-photo/illustration-future-human-education-with-robotic-tutor-his-student_924723-4739.jpg') no-repeat center center/cover;
     background-size: cover;
     overflow: hidden;
-    clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+    clip-path: ellipse(100% 90% at 50% 100%); /* Smooth curved cut at the bottom */
     box-shadow: 0 0 40px rgba(255, 0, 80, 0.5); /* Glowing effect around the hero */
+  }
+
+  /* Glowing Border Effect for Hero */
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 60px rgba(255, 0, 80, 0.8); /* More intense glow */
+    z-index: -1;
+    pointer-events: none; /* Ignore mouse events */
   }
 
   /* Overlay for Hero Image */
@@ -71,16 +84,12 @@
     animation-delay: 0.5s;
   }
 
-  /* Main Tiles Section */
-  .tiles-section {
-    width: 100%;
-    padding: 50px 0;
-  }
-
+  /* Main Tiles Section Inside Hero */
   .tiles {
     display: flex;
     justify-content: center;
     gap: 30px;
+    margin-top: 30px;
   }
 
   .tile {
@@ -209,27 +218,24 @@
         <h1>Welcome to Futureworks</h1>
         <p>Building a smarter future with innovative learning tools</p>
       </div>
+      <!-- Main Tiles Section Inside Hero -->
+      <div class="tiles">
+        <a href="/phill/" class="tile">
+          <h3>Phill</h3>
+          <p>Your AI learning companion</p>
+        </a>
+        <a href="/lsm/" class="tile">
+          <h3>LSM</h3>
+          <p>Explore Learning Strategies</p>
+        </a>
+        <a href="https://udemy-skunkworks.com/acc" target="_blank" class="tile">
+          <h3>ACC</h3>
+          <p>Advanced Course Catalog</p>
+        </a>
+      </div>
     </div>
   </div>
   
-  <!-- Main Tiles Section -->
-  <div class="tiles-section">
-    <div class="tiles">
-      <a href="/phill/" class="tile">
-        <h3>Phill</h3>
-        <p>Your AI learning companion</p>
-      </a>
-      <a href="/lsm/" class="tile">
-        <h3>LSM</h3>
-        <p>Explore Learning Strategies</p>
-      </a>
-      <a href="https://udemy-skunkworks.com/acc" target="_blank" class="tile">
-        <h3>ACC</h3>
-        <p>Advanced Course Catalog</p>
-      </a>
-    </div>
-  </div>
-
   <!-- Podcast Section -->
   <div class="podcast-section">
     <div>
