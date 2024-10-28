@@ -140,6 +140,32 @@ title: Udemy Futureworks - Home
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
   background: linear-gradient(135deg, rgba(255,255,255,0.5), rgba(255,255,255,0.25));
 }
+  /* Icon Styles */
+.tile .icon {
+  font-size: 4rem;
+  color: #6e45e2;
+  transition: color 0.4s ease;
+}
+
+.tile:hover .icon {
+  color: #88d3ce;
+}
+/* Decorative Lines */
+.tile::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: #6e45e2;
+  transition: width 0.4s ease, left 0.4s ease;
+}
+
+.tile:hover::after {
+  width: 60%;
+  left: 20%;
+}
 
   .tile h3 {
     font-size: 1.5rem;
@@ -266,14 +292,17 @@ title: Udemy Futureworks - Home
       <div class="tiles">
         <a href="/phill" class="tile">
           <h3>Phill</h3>
+          <i class="icon fas fa-rocket"></i> <!-- Example icon -->
           <p>Your AI learning companion</p>
         </a>
         <a href="/lsm" class="tile">
           <h3>LSM</h3>
+            <i class="icon fas fa-shield-alt"></i>
           <p>Explore Learning Strategies</p>
         </a>
         <a href="https://udemy-skunkworks.com/acc" target="_blank" class="tile">
           <h3>ACC</h3>
+            <i class="fa-solid fa-book-open-reader"></i>
           <p>Advanced Course Catalog</p>
         </a>
       </div>
