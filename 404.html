@@ -1,0 +1,103 @@
+---
+layout: default
+title: Oops! Page Not Found
+---
+
+  <div class="container">
+    <div class="illustration">
+      <!-- You can replace this with a funny image or illustration -->
+      <img src="/images/404-illustration.svg" alt="Lost in Space">
+    </div>
+    <h1>404</h1>
+    <p>Uh-oh! It looks like you've ventured into the unknown.</p>
+    <a href="/" class="home-button">Return to Home</a>
+
+<style>
+  /* Reset Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+  background-color: #1e1e2f;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Container */
+.container {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Illustration */
+.illustration img {
+  width: 300px;
+  max-width: 80%;
+  margin-bottom: 20px;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* 404 Heading */
+.container h1 {
+  font-size: 6rem;
+  margin-bottom: 20px;
+  color: #6e45e2;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+}
+
+/* Paragraph */
+.container p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #cccccc;
+}
+
+/* Home Button */
+.home-button {
+  background-color: #6e45e2;
+  color: #ffffff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.home-button:hover {
+  background-color: #88d3ce;
+  transform: scale(1.05);
+}
+
+/* Animation */
+@keyframes float {
+  0% { transform: translatey(0px); }
+  50% { transform: translatey(-20px); }
+  100% { transform: translatey(0px); }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .container h1 {
+    font-size: 4rem;
+  }
+
+  .container p {
+    font-size: 1rem;
+  }
+
+  .home-button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+</style>
