@@ -77,6 +77,16 @@ title: FU Podcast - Udemy Futureworks
       align-items: center;
       font-family: Arial, sans-serif;
     }
+    
+    .control-btn {
+      background: none;
+      border: none;
+      color: rgba(255, 255, 255, 0.9); /* Off-white color */
+      font-size: 24px;
+      cursor: pointer;
+      position: relative;
+    }
+
 
     /* Player Controls */
     .player-controls {
@@ -91,6 +101,39 @@ title: FU Podcast - Udemy Futureworks
     .volume-control {
       position: relative;
     }
+    .volume-slider{
+      transform: rotate(-90deg); /* Rotate to vertical */
+    }
+
+    .volume-slider {
+  transform: rotate(-90deg); /* Rotate to vertical */
+  width: 65px; /* Slider height will be width due to rotation */
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: rgba(0, 0, 0, 0.2);
+  height: 5px;
+  border-radius: 5px;
+  z-index:2
+}
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.8); /* Off-white thumb with some opacity */
+  cursor: pointer;
+}
+
+.volume-slider::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+}
 
     /* Volume Slider Container with Background */
     .volume-slider-container {
@@ -157,7 +200,7 @@ title: FU Podcast - Udemy Futureworks
           <div class="volume-control">
             <button id="volumeBtn1" class="control-btn"><i class="fa-solid fa-volume-high"></i></button>
             <div id="volume-slider-container1" class="volume-slider-container">
-              <input type="range" id="volumeSlider1" min="0" max="1" step="0.01" value="1">
+              <input type="range" class="volume-slider" id="volumeSlider1" min="0" max="1" step="0.01" value="1">
             </div>
           </div>
           
