@@ -79,29 +79,22 @@
 
   {{ content }}
 
-    <script>
+  <script>
+    // Function to get URL parameters as a query string
+    function getUrlParams() {
+      const queryString = window.location.search;
+      return queryString ? queryString : '';
+    }
+
+    // Function to initialize the iframe
+    function initializeIframe(iframeBaseUrl) {
       const iframeElement = document.getElementById('dynamicIframe');
-    document.addEventListener('DOMContentLoaded', function () {
-      // Base URL for the iframe
-
-      // Function to get URL parameters as a query string
-      function getUrlParams() {
-        const queryString = window.location.search;
-        return queryString ? queryString : '';
-      }
-
-      // Get the iframe element
-
-
-      // Set iframe's src dynamically with base URL and URL parameters
       iframeElement.src = iframeBaseUrl + getUrlParams();
-
-      // Hide the splash screen and show iframe once the content is fully loaded
       iframeElement.onload = function() {
         document.getElementById('splashScreen').style.display = 'none';
         iframeElement.style.display = 'block';
       };
-    });
+    }
   </script>
 
   <!-- JavaScript to dynamically load iframe and handle splash screen -->
