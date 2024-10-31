@@ -7,17 +7,12 @@ title: Phill - Udemy Futureworks
       // Base URL for the iframe
       const iframeBaseUrl = "https://script.google.com/macros/s/AKfycbwq8rD5dBJLwL_fmo-a6uYrnU5QbYWvH2cOsrPbn2BZLM0hZtw2KT-SBniDcthyb9_Z/exec?phill=true";
 
-      // Function to get URL parameters as a query string
-      function getUrlParams() {
-        const queryString = window.location.search;
-        return queryString ? queryString : '';
-      }
-
-      // Get the iframe element
-      const iframeElement = document.getElementById('dynamicIframe');
-
       // Update the iframe's src with the base URL and any parameters
       iframeElement.src = iframeBaseUrl + getUrlParams();
-      document.getElementById('splashScreen').style.display = 'none';
+            // Hide the splash screen and show iframe once the content is fully loaded
+      iframeElement.onload = function() {
+        document.getElementById('splashScreen').style.display = 'none';
+        iframeElement.style.display = 'block';
+      };
     });
   </script>
