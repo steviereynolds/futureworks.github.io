@@ -7,6 +7,7 @@
   
   <!-- Favicon -->
   <link rel="icon" href="/images/udemy_icon.png" type="image/png">
+  <!-- Preconnect and DNS Prefetch for Google Apps Script -->
   <link rel="preconnect" href="https://script.google.com">
   <link rel="preconnect" href="https://www.googleapis.com">
   <link rel="preconnect" href="https://googleusercontent.com">
@@ -16,8 +17,7 @@
   <link rel="dns-prefetch" href="//googleusercontent.com">
   <link rel="dns-prefetch" href="//apis.google.com">
 
-
-  
+  <!-- Styles -->
   <style>
     /* Basic styles for iframe pages */
     body, html {
@@ -25,17 +25,69 @@
       padding: 0;
       height: 100%;
       overflow: hidden;
+      font-family: Arial, sans-serif;
     }
+    
+    /* Centered splash screen with loading spinner */
+    #splashScreen {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff;
+      z-index: 10;
+    }
+
+    /* Spinner styles */
+    .spinner {
+      border: 8px solid #f3f3f3; /* Light gray */
+      border-top: 8px solid #3498db; /* Blue */
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+    }
+
+    /* Spinner animation */
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Iframe styling */
     iframe {
       width: 100%;
       height: 100%;
       border: none;
+      display: none; /* Hide initially until loaded */
     }
   </style>
 </head>
 <body>
+  <!-- Splash Screen -->
+  <div id="splashScreen">
+    <div class="spinner"></div>
+  </div>
+
   <!-- Page Content -->
-  <iframe id="dynamicIframe" src="" loading="lazy" width="600" height="400"></iframe>
+  <iframe id="dynamicIframe" src="https://your-google-apps-script-url" loading="lazy"></iframe>
+
   {{ content }}
+
+  <!-- JavaScript to handle iframe load event -->
+  <script>
+    const iframe = document.getElementById('dynamicIframe');
+    const splashScreen = document.getElementById('splashScreen');
+
+    // Listen for the iframe to fully load, then hide the splash screen and display the iframe
+    iframe.onload = function() {
+      splashScreen.style.display = 'none'; // Hide the splash screen
+      iframe.style.display = 'block'; // Show the iframe
+    };
+  </script>
 </body>
 </html>
