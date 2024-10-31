@@ -2,18 +2,12 @@
 layout: iframe
 title: LSM - Udemy Futureworks
 ---
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      // Base URL for the iframe
-      const iframeBaseUrl = "https://script.google.com/macros/s/AKfycbwq8rD5dBJLwL_fmo-a6uYrnU5QbYWvH2cOsrPbn2BZLM0hZtw2KT-SBniDcthyb9_Z/exec?";
-
-      // Update the iframe's src with the base URL and any parameters
-      iframeElement.src = iframeBaseUrl + getUrlParams();
-            // Hide the splash screen and show iframe once the content is fully loaded
-      iframeElement.onload = function() {
-        document.getElementById('splashScreen').style.display = 'none';
-        iframeElement.style.display = 'block';
-      };
-    });
-  </script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Define the base URL for this specific page
+    const iframeBaseUrl = "https://script.google.com/macros/s/AKfycbwq8rD5dBJLwL_fmo-a6uYrnU5QbYWvH2cOsrPbn2BZLM0hZtw2KT-SBniDcthyb9_Z/exec";
+    
+    // Call the initializeIframe function from the template with the base URL
+    initializeIframe(iframeBaseUrl);
+  });
+</script>
